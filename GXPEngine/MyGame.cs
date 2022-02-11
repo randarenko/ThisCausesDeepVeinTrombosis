@@ -30,6 +30,7 @@ public class MyGame : Game
 		sp.DiscardInBuffer();
 		Console.WriteLine(sp.ReadLine());
 		player.Move(sp.ReadLine());
+		player.Move(sp.ReadLine());
 		UpdateCars();
 	}
 	void UpdateCars()
