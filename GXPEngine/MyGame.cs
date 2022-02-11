@@ -21,6 +21,8 @@ public class MyGame : Game
 		}
 		sp.Open();
 		AddChild(player);
+
+		//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA THIS IS A PUSH  AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 	}
 
 	// For every game object, Update is called every frame, by the engine:
