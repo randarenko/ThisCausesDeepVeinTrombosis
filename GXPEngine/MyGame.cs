@@ -28,6 +28,7 @@ public class MyGame : Game
 	void Update()
 	{
 		rs.MoveRoad();
+		rs.MoveRoad();
 		sp.DiscardInBuffer();
 		Console.WriteLine(sp.ReadLine());
 		player.Move(sp.ReadLine());
