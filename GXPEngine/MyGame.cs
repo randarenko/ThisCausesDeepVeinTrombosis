@@ -22,7 +22,6 @@ public class MyGame : Game
 		sp.Open();
 		AddChild(player);
 
-		//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA THIS IS A PUSH  AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 	}
 
 	// For every game object, Update is called every frame, by the engine:
@@ -31,7 +30,6 @@ public class MyGame : Game
 		rs.MoveRoad();
 		sp.DiscardInBuffer();
 		Console.WriteLine(sp.ReadLine());
-		player.Move(sp.ReadLine());
 		player.Move(sp.ReadLine());
 		UpdateCars();
 	}
