@@ -16,10 +16,9 @@ public class MyGame : Game
 		raceScroller = new RoadScroller(1);
 		carSpawner = new CarSpawner();
 		player = new Player();
-		AddChild(player);
 		AddChild(raceScroller);
 		AddChild(carSpawner);
-
+		AddChild(player);
 	}
 
 	// For every game object, Update is called every frame, by the engine:

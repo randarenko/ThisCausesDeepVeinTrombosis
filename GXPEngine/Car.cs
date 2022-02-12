@@ -9,7 +9,7 @@ namespace GXPEngine
 	internal class Car : Sprite
 	{
 		float speed;
-		public Car(float speed, int lane) : base(@"C:\Users\mined\Pictures\LiftOff\car.png")
+		public Car(float speed, int lane) : base("Car.png")
 		{
 			this.speed = speed;
 			SetScaleXY(0.7f, 0.7f);
