@@ -16,12 +16,13 @@ namespace GXPEngine
 		{
 			SetScaleXY(0.5f, 0.5f);
 			SetXY(350, 300);
+			EventSystem.current.onUpdate += Move;
 		}
-		public void Move(string controlRaw)
+		public void Move()
 		{
-			controlRaw = controlRaw.Trim('\r');
-			control = int.Parse(controlRaw);
-			Console.WriteLine(control + " " + controlRaw);
+			//controlRaw = controlRaw.Trim('\r');
+			//control = int.Parse(controlRaw);
+			//Console.WriteLine(control + " " + controlRaw);
 			Move(speed * control,0);
 		}
 

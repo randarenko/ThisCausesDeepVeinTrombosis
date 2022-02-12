@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GXPEngine
 {
-	internal class RoadScroller
+	internal class RoadScroller : GameObject
 	{
 		float scrollSpeed;
 		float scaleFactor = 1;
@@ -16,6 +16,7 @@ namespace GXPEngine
 		public RoadScroller(float scrollSpeed)
 		{
 			this.scrollSpeed = scrollSpeed;
+			EventSystem.current.onUpdate += ScrollRoad;
 			Initialize();
 		}
 		void Initialize()
@@ -42,10 +43,11 @@ namespace GXPEngine
 					}
 					map[i, j].SetScaleXY(scaleFactor, scaleFactor);
 					map[i,j].SetXY(map[i,j].width*i, map[i,j].height*j- map[i, j].height);
+					AddChild(map[i,j]);
 				}
 			}
 		}
-		public void MoveRoad()
+		public void ScrollRoad()
 		{
 			totalMovement += scrollSpeed;
 			if (totalMovement >= map[0,0].height)
