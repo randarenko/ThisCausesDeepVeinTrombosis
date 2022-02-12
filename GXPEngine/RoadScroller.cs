@@ -11,7 +11,7 @@ namespace GXPEngine
 		float scrollSpeed;
 		float scaleFactor = 1;
 		float totalMovement = 0;
-		Sprite[] roadTiles = new Sprite[3] { new Sprite(@"C:\Users\mined\Pictures\LiftOff\road_left.png"), new Sprite(@"C:\Users\mined\Pictures\LiftOff\road_center.png"), new Sprite(@"C:\Users\mined\Pictures\LiftOff\road_right.png") };
+		Sprite[] roadTiles = new Sprite[3] { new Sprite("road_left.png"), new Sprite("road_center.png"), new Sprite("road_right.png") };
 		public Sprite[,] map = new Sprite[7, 10];
 		public RoadScroller(float scrollSpeed)
 		{
@@ -39,7 +39,7 @@ namespace GXPEngine
 					}
 					else
 					{
-						map[i, j] = new Sprite(@"C:\Users\mined\Pictures\LiftOff\grass.png");
+						map[i, j] = new Sprite("grass.png");
 					}
 					map[i, j].SetScaleXY(scaleFactor, scaleFactor);
 					map[i,j].SetXY(map[i,j].width*i, map[i,j].height*j- map[i, j].height);

@@ -12,7 +12,7 @@ namespace GXPEngine
 		int leftBound = 200, rightBound = 500;
 		float speed = 0.1f;
 		int control;
-		public Player() : base(@"C:\Users\mined\Pictures\LiftOff\player.png")
+		public Player() : base("player.png")
 		{
 			SetScaleXY(0.5f, 0.5f);
 			SetXY(350, 300);
