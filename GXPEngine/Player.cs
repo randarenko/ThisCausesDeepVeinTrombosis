@@ -9,7 +9,7 @@ namespace GXPEngine
 {
 	internal class Player : Sprite
 	{
-		int leftBound = 200, rightBound = 500;
+		SerialPort port = new SerialPort("COM5", 9600, Parity.None, 8, StopBits.One);
 		float speed = 0.1f;
 		int control;
 		public Player() : base("player.png")
@@ -17,12 +17,14 @@ namespace GXPEngine
 			SetScaleXY(0.5f, 0.5f);
 			SetXY(350, 300);
 			EventSystem.current.onUpdate += Move;
+			port.Open();
 		}
 		public void Move()
 		{
-			//controlRaw = controlRaw.Trim('\r');
-			//control = int.Parse(controlRaw);
-			//Console.WriteLine(control + " " + controlRaw);
+			port.DiscardInBuffer();
+			string rawInput = port.ReadLine();
+			rawInput = rawInput.Trim('\r');
+			int.TryParse(rawInput, out control);
 			Move(speed * control,0);
 		}
 

@@ -43,6 +43,10 @@
   <ItemGroup>
     <Compile Include="Car.cs" />
     <Compile Include="CarSpawner.cs" />
+    <Compile Include="Chunk.cs" />
+    <Compile Include="ChunkController.cs" />
+    <Compile Include="ChunkLib.cs" />
+    <Compile Include="Entity.cs" />
     <Compile Include="EventSystem.cs" />
     <Compile Include="GXPEngine\AddOns\Gizmos.cs" />
     <Compile Include="GXPEngine\AddOns\SpriteBatch.cs" />
