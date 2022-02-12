@@ -10,9 +10,14 @@ namespace GXPEngine
 	{
 		float scrollSpeed;
 		float scaleFactor = 1;
-		float totalMovement = 0;
-		Sprite[] roadTiles = new Sprite[3] { new Sprite(@"C:\Users\mined\Pictures\LiftOff\road_left.png"), new Sprite(@"C:\Users\mined\Pictures\LiftOff\road_center.png"), new Sprite(@"C:\Users\mined\Pictures\LiftOff\road_right.png") };
-		public Sprite[,] map = new Sprite[7, 10];
+		static int gridColumnCount = 7;
+		static int lanes = 3;
+		Sprite[] roadTiles = new Sprite[4] {
+			new Sprite("road_left.png"),
+			new Sprite("road_center.png"),
+			new Sprite("road_right.png"),
+			new Sprite("grass.png")};
+		public Sprite[,] map = new Sprite[gridColumnCount, 20];
 		public RoadScroller(float scrollSpeed)
 		{
 			this.scrollSpeed = scrollSpeed;
@@ -21,51 +26,36 @@ namespace GXPEngine
 		}
 		void Initialize()
 		{
-			for (int i = 0; i < 7; i++)
+			float gridWidth = gridColumnCount * EventSystem.TileSize * scaleFactor;
+			float tileSize = EventSystem.TileSize * scaleFactor;
+			SetXY(1366 / 2 - gridWidth / 2, -tileSize); //centers grid on screen
+			int offroadWidth = (gridColumnCount - lanes )/ 2; //how much env tiles will be on each side
+			for (int i = 0; i < gridColumnCount; i++)
 			{
-				for (int j = 0; j < 10; j++)
+				for (int j = 0; j < 20; j++)
 				{
-					if(i == 7/2)
+					if (i < offroadWidth || i >= gridColumnCount - offroadWidth)
 					{
-						map[i,j] = new Sprite(roadTiles[1].name, false, false);
-					}
-					else if (i == 7/2-1)
-					{
-						map[i, j] = new Sprite(roadTiles[0].name, false, false);
-					}
-					else if(i == 7/2+1)
-					{
-						map[i, j] = new Sprite(roadTiles[2].name, false, false);
+						map[i, j] = new Sprite(roadTiles[3].name, false, false);
 					}
 					else
 					{
-						map[i, j] = new Sprite(@"C:\Users\mined\Pictures\LiftOff\grass.png");
+						map[i, j] = new Sprite(roadTiles[1].name, false, false);
 					}
-					map[i, j].SetScaleXY(scaleFactor, scaleFactor);
-					map[i,j].SetXY(map[i,j].width*i, map[i,j].height*j- map[i, j].height);
-					AddChild(map[i,j]);
+					map[i,j].SetScaleXY(scaleFactor, scaleFactor);
+					map[i, j].SetXY(i*tileSize, j*tileSize);
+					AddChild(map[i, j]);	
 				}
 			}
 		}
+		
 		public void ScrollRoad()
 		{
-			totalMovement += scrollSpeed;
-			if (totalMovement >= map[0,0].height)
+			Move(0, scrollSpeed);
+			if (y+EventSystem.TileSize>0)
 			{
-				totalMovement = totalMovement - map[0,0].height;
-				foreach (var item in map)
-				{
-					item.SetXY(item.x, item.y - item.height + totalMovement);
-				}
+				SetXY(x, -EventSystem.TileSize*2);
 			}
-			else
-			{
-				foreach (var item in map)
-				{
-					item.Move(0, scrollSpeed);
-				}
-			}
-			
 		}
 	}
 }

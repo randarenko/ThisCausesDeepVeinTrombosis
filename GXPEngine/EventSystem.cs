@@ -18,5 +18,8 @@ namespace GXPEngine
 		{
 			onUpdate?.Invoke(); //invokes an event is its isn't null
 		}
+
+
+		public static int TileSize { get; set; } = 100; //size of a tile accessible from anywhere
 	}
 }

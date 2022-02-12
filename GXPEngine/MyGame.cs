@@ -6,18 +6,21 @@ using System.IO.Ports;
 
 public class MyGame : Game
 {
+	ChunkController chunkController;
 	RoadScroller raceScroller;
 	CarSpawner carSpawner;
 	Player player;
-	SerialPort port = new SerialPort("COM5", 9600, Parity.None, 8, StopBits.One);
-	public MyGame() : base(800, 600, false)		
+	public MyGame() : base(1366, 768, false)		
 	{
 		EventSystem es = new EventSystem();
-		raceScroller = new RoadScroller(1);
+		chunkController = new ChunkController();
+		raceScroller = new RoadScroller(2);
 		carSpawner = new CarSpawner();
 		player = new Player();
-		AddChild(player);
 		AddChild(raceScroller);
+		AddChild(chunkController);
+		AddChild(player);
+
 		AddChild(carSpawner);
 
 	}
