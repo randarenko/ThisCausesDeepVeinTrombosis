@@ -9,14 +9,26 @@ public class MyGame : Game
 	RoadScroller raceScroller;
 	CarSpawner carSpawner;
 	Player player;
+<<<<<<< Updated upstream
 	SerialPort port = new SerialPort("COM5", 9600, Parity.None, 8, StopBits.One);
 	public MyGame() : base(800, 600, false)		
+=======
+	CoinSpawner coinSpawner;
+	public MyGame() : base(1366, 768, false)		
+>>>>>>> Stashed changes
 	{
 		EventSystem es = new EventSystem();
 		raceScroller = new RoadScroller(1);
 		carSpawner = new CarSpawner();
 		player = new Player();
+		coinSpawner = new CoinSpawner();
 		AddChild(raceScroller);
+<<<<<<< Updated upstream
+=======
+		AddChild(chunkController);
+		AddChild(player);
+		AddChild(coinSpawner);
+>>>>>>> Stashed changes
 		AddChild(carSpawner);
 		AddChild(player);
 	}

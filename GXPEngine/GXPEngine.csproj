@@ -43,6 +43,14 @@
   <ItemGroup>
     <Compile Include="Car.cs" />
     <Compile Include="CarSpawner.cs" />
+<<<<<<< Updated upstream
+=======
+    <Compile Include="Chunk.cs" />
+    <Compile Include="ChunkController.cs" />
+    <Compile Include="ChunkLib.cs" />
+    <Compile Include="Coin.cs" />
+    <Compile Include="Entity.cs" />
+>>>>>>> Stashed changes
     <Compile Include="EventSystem.cs" />
     <Compile Include="GXPEngine\AddOns\Gizmos.cs" />
     <Compile Include="GXPEngine\AddOns\SpriteBatch.cs" />
@@ -85,6 +93,7 @@
     <Compile Include="GXPEngine\FMOD\FMODSoundSystem.cs" />
     <Compile Include="GXPEngine\SoLoud\Soloud.cs" />
     <Compile Include="GXPEngine\SoLoud\SoloudSoundSystem.cs" />
+    <Compile Include="CoinSpawner.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="RoadScroller.cs" />
   </ItemGroup>
