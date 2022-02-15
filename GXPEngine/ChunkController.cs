@@ -50,7 +50,6 @@ namespace GXPEngine
 				for (int x = 0; x < Chunk.xSize; x++)
 				{
 					entities[x, y] = new Entity();
-					Console.WriteLine(y*Chunk.xSize + x);
 					entities[x, y] = EntityConverter(int.Parse(entitiesId[y * Chunk.xSize + x]));
 				}
 			}

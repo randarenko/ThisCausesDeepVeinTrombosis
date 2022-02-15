@@ -10,6 +10,7 @@ public class MyGame : Game
 	RoadScroller raceScroller;
 	CarSpawner carSpawner;
 	Player player;
+	SpeedController speedController;
 	public MyGame() : base(1366, 768, false)		
 	{
 		EventSystem es = new EventSystem();
@@ -17,10 +18,10 @@ public class MyGame : Game
 		raceScroller = new RoadScroller(2);
 		carSpawner = new CarSpawner();
 		player = new Player();
+		speedController = new SpeedController();
 		AddChild(raceScroller);
 		AddChild(chunkController);
 		AddChild(player);
-
 		AddChild(carSpawner);
 
 	}
@@ -29,6 +30,10 @@ public class MyGame : Game
 	void Update()
 	{
 		EventSystem.current.Update();
+		if (Input.GetKeyDown(Key.A))
+		{
+			EventSystem.current.CarCollision();
+		}
 	}
 	static void Main()							// Main() is the first method that's called when the program is run
 	{

@@ -89,8 +89,10 @@
     <Compile Include="GXPEngine\FMOD\FMODSoundSystem.cs" />
     <Compile Include="GXPEngine\SoLoud\Soloud.cs" />
     <Compile Include="GXPEngine\SoLoud\SoloudSoundSystem.cs" />
+    <Compile Include="OilPool.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="RoadScroller.cs" />
+    <Compile Include="SpeedController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

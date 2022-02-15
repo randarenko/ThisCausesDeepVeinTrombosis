@@ -51,7 +51,7 @@ namespace GXPEngine
 		
 		public void ScrollRoad()
 		{
-			Move(0, scrollSpeed);
+			Move(0, scrollSpeed*EventSystem.speedMultiplier);
 			if (y+EventSystem.TileSize>0)
 			{
 				SetXY(x, -EventSystem.TileSize*2);

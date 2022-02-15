@@ -35,6 +35,18 @@ namespace GXPEngine
 						AddChild(car);
 					}
 					//-----------------------------------------------------------------------------
+					if(entities[i,j] == Entity.OIL)
+					{
+						int type = 1;
+						if (j == 0 || entities[i, j - 1] != Entity.OIL)
+							type = 0;
+						else if (j == 14 || entities[i, j + 1] != Entity.OIL)
+							type = 2;
+						OilPool oil = new OilPool(type);
+						Vector2 center = CellCenter(i,j);
+						oil.SetXY(center.x, center.y);
+						AddChild(oil);
+					}
 				}
 			}
 		}
