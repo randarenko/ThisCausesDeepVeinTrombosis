@@ -9,6 +9,8 @@ namespace GXPEngine
 {
 	internal class Player : Sprite
 	{
+		public static Player current;
+
 		SerialPort port = new SerialPort("COM5", 9600, Parity.None, 8, StopBits.One);
 		float speed = 0.1f;
 		int control;
@@ -18,6 +20,7 @@ namespace GXPEngine
 
 		public Player() : base("player.png")
 		{
+			current = this;
 			SetScaleXY(0.5f, 0.5f);
 			SetXY(350, 300);
 			EventSystem.current.onUpdate += Move;
@@ -61,6 +64,13 @@ namespace GXPEngine
 				if (item.parent is OilPool)
 				{
 					onOil = true;
+				}
+				else if(item is Coin)
+				{
+					EventSystem.coinsCollected++;
+					Coin coin = (Coin)item;
+					coin.PreDestroy();
+					coin.Destroy();
 				}
 			}
 		}

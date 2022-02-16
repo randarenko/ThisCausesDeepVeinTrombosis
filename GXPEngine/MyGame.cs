@@ -32,7 +32,7 @@ public class MyGame : Game
 		EventSystem.current.Update();
 		if (Input.GetKeyDown(Key.A))
 		{
-			EventSystem.current.CarCollision();
+			EventSystem.current.MagnetPickedUp(Time.time, 5000);
 		}
 	}
 	static void Main()							// Main() is the first method that's called when the program is run

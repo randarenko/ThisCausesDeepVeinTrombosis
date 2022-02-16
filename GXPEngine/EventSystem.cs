@@ -11,6 +11,7 @@ namespace GXPEngine
 		public static EventSystem current; // creates static object of current class accessible from anywhere
 		public event Action onUpdate; //event which will be triggered on every update and can be subscribed to
 		public event Action onCarCollision;
+		public event Action<int,int> onMagnetPickedUp;
 		public EventSystem()
 		{
 			current = this; //assigns current instance of class to variable
@@ -23,9 +24,14 @@ namespace GXPEngine
 		{
 			onCarCollision?.Invoke();
 		}
+		public void MagnetPickedUp(int startTime, int totalTime)
+		{
+			onMagnetPickedUp?.Invoke(startTime, totalTime);
+		}
 
 
 		public static int TileSize { get; set; } = 100; //size of a tile accessible from anywhere
 		public static float speedMultiplier = 1;
+		public static int coinsCollected = 0;
 	}
 }

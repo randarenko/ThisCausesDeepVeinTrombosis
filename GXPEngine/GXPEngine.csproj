@@ -46,11 +46,13 @@
     <Compile Include="Chunk.cs" />
     <Compile Include="ChunkController.cs" />
     <Compile Include="ChunkLib.cs" />
+    <Compile Include="Coin.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="EventSystem.cs" />
     <Compile Include="GXPEngine\AddOns\Gizmos.cs" />
     <Compile Include="GXPEngine\AddOns\SpriteBatch.cs" />
     <Compile Include="GXPEngine\AddOns\TiledLoader.cs" />
+    <Compile Include="Magnet.cs" />
     <Compile Include="MyGame.cs" />
     <Compile Include="GXPEngine\Core\Canvas.cs" />
     <Compile Include="GXPEngine\Game.cs" />
