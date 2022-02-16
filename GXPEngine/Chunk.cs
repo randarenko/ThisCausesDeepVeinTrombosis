@@ -35,6 +35,14 @@ namespace GXPEngine
 						AddChild(car);
 					}
 					//-----------------------------------------------------------------------------
+					if (entities[i, j] == Entity.COIN)
+					{
+						Coin coin = new Coin();
+						Vector2 center = CellCenter(i, j); // get current cell center coords
+						coin.SetXY(center.x, center.y); //entity object's origin should be centered for this to work correctly
+						AddChild(coin);
+					}
+					//-----------------------------------------------------------------------------
 				}
 			}
 		}
