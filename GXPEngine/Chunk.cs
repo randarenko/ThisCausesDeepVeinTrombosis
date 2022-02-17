@@ -54,6 +54,13 @@ namespace GXPEngine
 						coin.SetXY(center.x,center.y);
 						AddChild(coin);
 					}
+					else if (entities[i, j] == Entity.MAGNET)
+					{
+						Magnet magnet = new Magnet();
+						Vector2 center = CellCenter(i, j);
+						magnet.SetXY(center.x, center.y);
+						AddChild(magnet);
+					}
 				}
 			}
 		}
