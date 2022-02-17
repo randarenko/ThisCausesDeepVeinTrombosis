@@ -20,8 +20,7 @@ namespace GXPEngine
 
         void Update()
         {
-            startGame();
-            /*
+            
             if(Input.GetKey(Key.SPACE))
             {
                 Timer++;
@@ -34,7 +33,7 @@ namespace GXPEngine
             else
             {
                 Timer = 0;
-            }*/
+            }
         }
 
         void startGame()

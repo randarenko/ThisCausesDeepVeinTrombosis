@@ -72,6 +72,11 @@ namespace GXPEngine
 					coin.PreDestroy();
 					coin.Destroy();
 				}
+				else if(item is Magnet)
+                {
+					Magnet magnet = (Magnet)item;
+					magnet.Destroy();
+                }
 			}
 		}
 

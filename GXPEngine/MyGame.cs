@@ -8,10 +8,10 @@ public class MyGame : Game
 {
 	public MyGame() : base(1366, 768, false)		
 	{
-		Menu menu = new Menu();	
-		AddChild(menu);
-		//Level level = new Level();
-		//AddChild(level);
+		// menu = new Menu();	
+		//AddChild(menu);
+		Level level = new Level();
+		AddChild(level);
 	}
 
 	// For every game object, Update is called every frame, by the engine:
