@@ -24,7 +24,7 @@ namespace GXPEngine
             if(Input.GetKey(Key.SPACE))
             {
                 Timer++;
-                Console.WriteLine(Timer);
+                //Console.WriteLine(Timer);
                 if (Timer > 180)
                 {
                     startGame();

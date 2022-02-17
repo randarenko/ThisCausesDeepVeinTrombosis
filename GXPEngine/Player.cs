@@ -12,7 +12,7 @@ namespace GXPEngine
 		public static Player current;
 
 		SerialPort port = new SerialPort("COM5", 9600, Parity.None, 8, StopBits.One);
-		float speed = 0.1f;
+		float speed = 0.5f;
 		int control;
 		bool onOil = false;
 		bool wasOnOil = false;
@@ -32,7 +32,7 @@ namespace GXPEngine
 			port.DiscardInBuffer();
 			string rawInput = port.ReadLine();
 			rawInput = rawInput.Trim('\r');
-				Console.WriteLine(onOil);
+				//Console.WriteLine(onOil);
 			int.TryParse(rawInput, out control);
 			if (!onOil)
 			{
@@ -69,12 +69,14 @@ namespace GXPEngine
 				{
 					EventSystem.coinsCollected++;
 					Coin coin = (Coin)item;
+					Console.WriteLine(EventSystem.coinsCollected);
 					coin.PreDestroy();
 					coin.Destroy();
 				}
 				else if(item is Magnet)
                 {
 					Magnet magnet = (Magnet)item;
+					EventSystem.current.MagnetPickedUp(Time.time, 5000);
 					magnet.Destroy();
                 }
 			}

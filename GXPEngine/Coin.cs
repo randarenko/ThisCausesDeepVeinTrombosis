@@ -22,7 +22,7 @@ namespace GXPEngine
 		{
 			float x = parent.parent.x - Player.current.x;
 			float y = parent.parent.y - Player.current.y;
-			Move(x*speed, y*speed);
+			Move(x * speed, y * speed);
 		}
 		public void PreDestroy()
 		{
