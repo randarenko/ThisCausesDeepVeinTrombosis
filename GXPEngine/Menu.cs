@@ -9,6 +9,7 @@ namespace GXPEngine
     internal class Menu : GameObject
     {
         Button _button;
+        int Timer;
         public Menu ()
         {
             Button button = new Button();
@@ -19,12 +20,19 @@ namespace GXPEngine
 
         void Update()
         {
-            if(Input.GetMouseButtonDown(0))
+
+            if(Input.GetKey(Key.SPACE))
             {
-                //if(_button.HitTestPoint(Input.mouseX, Input.mouseY))
+                Timer++;
+                Console.WriteLine(Timer);
+                if (Timer > 180)
                 {
                     startGame();
                 }
+            }
+            else
+            {
+                Timer = 0;
             }
         }
 
