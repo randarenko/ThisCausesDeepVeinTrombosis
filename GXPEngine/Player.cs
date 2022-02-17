@@ -12,7 +12,7 @@ namespace GXPEngine
 		public static Player current;
 
 		SerialPort port = new SerialPort("COM5", 9600, Parity.None, 8, StopBits.One);
-		float speed = 0.1f;
+		float speed = 0.4f;
 		int control;
 		bool onOil = false;
 		bool wasOnOil = false;
