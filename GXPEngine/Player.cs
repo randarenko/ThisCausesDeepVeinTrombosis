@@ -68,20 +68,22 @@ namespace GXPEngine
 				{
 					EventSystem.coinsCollected++;
 					Coin coin = (Coin)item;
-					coin.PreDestroy();
 					coin.LateDestroy();
 					EventSystem.score += 1000;
+					SoundManager.current.PlaySFX(0);
 				}
 				else if(item is Car)
 				{
 					EventSystem.current.CarCollision();
 					item.Destroy();
+					SoundManager.current.PlaySFX(2);
 				}
 				else if(item is Cone)
 				{
 					int r = Utils.Random(0, 2);
 					if (r == 0)
 						EventSystem.current.CarCollision();
+					SoundManager.current.PlaySFX(2);
 					item.Destroy();
 				}
 				else if(item is Fuel)
@@ -89,6 +91,7 @@ namespace GXPEngine
 					item.Destroy();
 					EventSystem.current.SpeedUp();
 					EventSystem.lives++;
+					SoundManager.current.PlaySFX(1);
 				}
 			}
 		}

@@ -13,6 +13,7 @@ public class MyGame : Game
 	PoliceCar policeCar;
 	SpeedController speedController;
 	EasyDraw highscore;
+	SoundManager soundManager;
 	public MyGame() : base(1366, 768, false)		
 	{
 		StartGame();
@@ -26,7 +27,8 @@ public class MyGame : Game
 		policeCar = new PoliceCar();
 		speedController = new SpeedController();
 		highscore = new EasyDraw(300, 150);
-
+		soundManager = new SoundManager();
+		SoundManager.current.PlayMusic();
 		
 
 		AddChild(raceScroller);

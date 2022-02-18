@@ -29,7 +29,7 @@ namespace GXPEngine
 		void SpawnChunk()
 		{
 			//takes random element of string array in ChunkLib and converts it to entity twodimensional array
-			Chunk chunk = new Chunk(ParseChunk(ChunkLib.chunks[Utils.Random(0,1)]));
+			Chunk chunk = new Chunk(ParseChunk(ChunkLib.chunks[Utils.Random(0,ChunkLib.chunks.Length)]));
 			AddChild(chunk);
 			chunk.SetXY(chunk.x, spawnY);
 			spawnY -= EventSystem.TileSize * Chunk.ySize;

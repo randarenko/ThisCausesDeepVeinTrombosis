@@ -97,6 +97,7 @@
     <Compile Include="Player.cs" />
     <Compile Include="PoliceCar.cs" />
     <Compile Include="RoadScroller.cs" />
+    <Compile Include="SoundManager.cs" />
     <Compile Include="SpeedController.cs" />
   </ItemGroup>
   <ItemGroup>

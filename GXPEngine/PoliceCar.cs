@@ -16,6 +16,7 @@ namespace GXPEngine
 			SetScaleXY(0.18f, 0.18f);
 			SetXY(1366/2, 700);
 			EventSystem.current.onCarCollision += StartMove;
+			EventSystem.current.onSpeedUp += Return;
 		}
 		public void Return()
 		{
@@ -24,7 +25,11 @@ namespace GXPEngine
 		}
 		public void MoveBackwards()
 		{
-			Move(0, -moveSpeed);
+			Move(0, moveSpeed);
+			if (y >= desiredLocation)
+			{
+				EventSystem.current.onUpdate -= MoveBackwards;
+			}
 		}
 		public void StartMove()
 		{
