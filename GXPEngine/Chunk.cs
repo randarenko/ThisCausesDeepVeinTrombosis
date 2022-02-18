@@ -54,6 +54,20 @@ namespace GXPEngine
 						coin.SetXY(center.x,center.y);
 						AddChild(coin);
 					}
+					else if(entities[i,j] == Entity.CONES)
+					{
+						Cone cone = new Cone();
+						Vector2 center = CellCenter(i, j);
+						cone.SetXY(center.x, center.y);
+						AddChild(cone);
+					}
+					else if(entities[i,j] == Entity.FUEL)
+					{
+						Fuel fuel = new Fuel();
+						Vector2 center = CellCenter(i, j);
+						fuel.SetXY(center.x, center.y);
+						AddChild(fuel);
+					}
 				}
 			}
 		}

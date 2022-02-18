@@ -16,6 +16,7 @@ namespace GXPEngine
 		public SpeedController()
 		{
 			EventSystem.current.onCarCollision += SlowDown;
+			EventSystem.current.onSpeedUp += SpeedUp;
 		}
 		void SlowDown()
 		{

@@ -7,24 +7,27 @@ using System.Threading.Tasks;
 
 namespace GXPEngine
 {
-	internal class Player : Sprite
+	internal class Player : AnimationSprite
 	{
 		public static Player current;
 
 		SerialPort port = new SerialPort("COM5", 9600, Parity.None, 8, StopBits.One);
-		float speed = 0.4f;
+		float speed = 0.2f;
 		int control;
 		bool onOil = false;
 		bool wasOnOil = false;
 		int previousInput = 0;
+		List<int> controlHistory = new List<int>();
+		int latency = 20;
 
-		public Player() : base("player.png")
+		public Player() : base("spritesheet.png", 13, 1)
 		{
 			current = this;
-			SetScaleXY(0.5f, 0.5f);
+			SetScaleXY(0.06f, 0.06f);
 			SetXY(350, 300);
 			EventSystem.current.onUpdate += Move;
 			EventSystem.current.onUpdate += CollisionUpdate;
+			_animationDelay = 50;
 			port.Open();
 		}
 		public void Move()
@@ -34,27 +37,23 @@ namespace GXPEngine
 			rawInput = rawInput.Trim('\r');
 				Console.WriteLine(onOil);
 			int.TryParse(rawInput, out control);
-			if (!onOil)
+			controlHistory.Add(control);
+			if (onOil)
 			{
-				wasOnOil = false;
-				Move(speed * control,0);
-				previousInput = control;
+				int currentControl;
+				if (controlHistory.Count < latency)
+					currentControl = controlHistory.First();
+				else
+					currentControl = controlHistory[controlHistory.Count - latency];
+				Move(currentControl * speed, 0);
 			}
-			else if(onOil&&!wasOnOil)
+			else
 			{
-				Move(speed * control, 0);
-				previousInput = control;
-			}
-			else if(onOil&&wasOnOil)
-			{
-				wasOnOil = true;
-				Move(-speed * control,0);
-			}
-			if (onOil && control == 0&&!wasOnOil)
-			{
-				wasOnOil = true;
+				Move(control*0.7f, 0);
 			}
 
+			SetCycle(0, 13);
+			Animate();
 		}
 		public void CollisionUpdate()
 		{
@@ -70,7 +69,26 @@ namespace GXPEngine
 					EventSystem.coinsCollected++;
 					Coin coin = (Coin)item;
 					coin.PreDestroy();
-					coin.Destroy();
+					coin.LateDestroy();
+					EventSystem.score += 1000;
+				}
+				else if(item is Car)
+				{
+					EventSystem.current.CarCollision();
+					item.Destroy();
+				}
+				else if(item is Cone)
+				{
+					int r = Utils.Random(0, 2);
+					if (r == 0)
+						EventSystem.current.CarCollision();
+					item.Destroy();
+				}
+				else if(item is Fuel)
+				{
+					item.Destroy();
+					EventSystem.current.SpeedUp();
+					EventSystem.lives++;
 				}
 			}
 		}

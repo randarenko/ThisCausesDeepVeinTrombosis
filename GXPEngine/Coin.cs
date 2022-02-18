@@ -8,7 +8,7 @@ namespace GXPEngine
 {
 	internal class Coin : Sprite
 	{
-		float speed = 0.02f;
+		float speed = 0.05f;
 		public Coin() : base("coin.png")
 		{
 			SetOrigin(width / 2, height / 2);
@@ -20,8 +20,8 @@ namespace GXPEngine
 		}
 		void AttractToPlayer()
 		{
-			float x = parent.parent.x - Player.current.x;
-			float y = parent.parent.y - Player.current.y;
+			float x = this.x - Player.current.x;
+			float y = Player.current.y - this.y - parent.y;
 			Move(x*speed, y*speed);
 		}
 		public void PreDestroy()
