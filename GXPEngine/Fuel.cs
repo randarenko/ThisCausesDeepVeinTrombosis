@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace GXPEngine
 {
-	internal class Coin : Sprite
+	internal class Fuel : Sprite
 	{
-		float speed = 0.05f;
-		public Coin() : base("coin.png")
+		public Fuel() : base("boost.png")
 		{
 			SetOrigin(width / 2, height / 2);
-			SetScaleXY(0.7f, 0.7f);
+			SetScaleXY(0.1f, 0.1f);
 		}
+		
 	}
 }

@@ -35,14 +35,39 @@ namespace GXPEngine
 						AddChild(car);
 					}
 					//-----------------------------------------------------------------------------
-					if (entities[i, j] == Entity.COIN)
+					else if(entities[i,j] == Entity.OIL)
+					{
+						int type = 1;
+						if (j == 0 || entities[i, j - 1] != Entity.OIL)
+							type = 0;
+						else if (j == 14 || entities[i, j + 1] != Entity.OIL)
+							type = 2;
+						OilPool oil = new OilPool(type);
+						Vector2 center = CellCenter(i,j);
+						oil.SetXY(center.x, center.y);
+						AddChild(oil);
+					}
+					else if(entities[i,j] == Entity.COIN)
 					{
 						Coin coin = new Coin();
-						Vector2 center = CellCenter(i, j); // get current cell center coords
-						coin.SetXY(center.x, center.y); //entity object's origin should be centered for this to work correctly
+						Vector2 center = CellCenter(i, j);
+						coin.SetXY(center.x,center.y);
 						AddChild(coin);
 					}
-					//-----------------------------------------------------------------------------
+					else if(entities[i,j] == Entity.CONES)
+					{
+						Cone cone = new Cone();
+						Vector2 center = CellCenter(i, j);
+						cone.SetXY(center.x, center.y);
+						AddChild(cone);
+					}
+					else if(entities[i,j] == Entity.FUEL)
+					{
+						Fuel fuel = new Fuel();
+						Vector2 center = CellCenter(i, j);
+						fuel.SetXY(center.x, center.y);
+						AddChild(fuel);
+					}
 				}
 			}
 		}

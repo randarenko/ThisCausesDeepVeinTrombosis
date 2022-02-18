@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace GXPEngine
 {
-	internal class Coin : Sprite
+	internal class Magnet : Sprite
 	{
-		float speed = 0.05f;
-		public Coin() : base("coin.png")
+		public Magnet() : base("magnet.png")
 		{
 			SetOrigin(width / 2, height / 2);
-			SetScaleXY(0.7f, 0.7f);
 		}
 	}
 }

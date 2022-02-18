@@ -13,9 +13,9 @@ namespace GXPEngine
 		static int gridColumnCount = 7;
 		static int lanes = 3;
 		Sprite[] roadTiles = new Sprite[4] {
-			new Sprite("road_left.png"),
-			new Sprite("road_center.png"),
-			new Sprite("road_right.png"),
+			new Sprite("road1.png"),
+			new Sprite("road2.png"),
+			new Sprite("road3.png"),
 			new Sprite("grass.png")};
 		public Sprite[,] map = new Sprite[gridColumnCount, 20];
 		public RoadScroller(float scrollSpeed)
@@ -38,6 +38,14 @@ namespace GXPEngine
 					{
 						map[i, j] = new Sprite(roadTiles[3].name, false, false);
 					}
+					else if(i == offroadWidth)
+					{
+						map[i, j] = new Sprite(roadTiles[0].name, false, false);
+					}
+					else if(i == gridColumnCount - offroadWidth-1)
+					{
+						map[i, j] = new Sprite(roadTiles[2].name, false, false);
+					}
 					else
 					{
 						map[i, j] = new Sprite(roadTiles[1].name, false, false);
@@ -51,7 +59,7 @@ namespace GXPEngine
 		
 		public void ScrollRoad()
 		{
-			Move(0, scrollSpeed);
+			Move(0, scrollSpeed*EventSystem.speedMultiplier);
 			if (y+EventSystem.TileSize>0)
 			{
 				SetXY(x, -EventSystem.TileSize*2);

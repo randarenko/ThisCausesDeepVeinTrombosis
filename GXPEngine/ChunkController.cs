@@ -23,12 +23,13 @@ namespace GXPEngine
 				yToSpawn += EventSystem.TileSize * Chunk.ySize;
 				SpawnChunk();
 			}
-			Move(0, 1);
+			Move(0, 1 * EventSystem.speedMultiplier);
+			EventSystem.score += Mathf.Round( 1 * EventSystem.speedMultiplier);
 		}
 		void SpawnChunk()
 		{
 			//takes random element of string array in ChunkLib and converts it to entity twodimensional array
-			Chunk chunk = new Chunk(ParseChunk(ChunkLib.chunks[Utils.Random(0, 1)]));
+			Chunk chunk = new Chunk(ParseChunk(ChunkLib.chunks[Utils.Random(0,1)]));
 			AddChild(chunk);
 			chunk.SetXY(chunk.x, spawnY);
 			spawnY -= EventSystem.TileSize * Chunk.ySize;
@@ -50,7 +51,6 @@ namespace GXPEngine
 				for (int x = 0; x < Chunk.xSize; x++)
 				{
 					entities[x, y] = new Entity();
-					Console.WriteLine(y*Chunk.xSize + x);
 					entities[x, y] = EntityConverter(int.Parse(entitiesId[y * Chunk.xSize + x]));
 				}
 			}

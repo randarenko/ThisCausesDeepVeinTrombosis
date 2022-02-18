@@ -47,11 +47,14 @@
     <Compile Include="ChunkController.cs" />
     <Compile Include="ChunkLib.cs" />
     <Compile Include="Coin.cs" />
+    <Compile Include="Cone.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="EventSystem.cs" />
+    <Compile Include="Fuel.cs" />
     <Compile Include="GXPEngine\AddOns\Gizmos.cs" />
     <Compile Include="GXPEngine\AddOns\SpriteBatch.cs" />
     <Compile Include="GXPEngine\AddOns\TiledLoader.cs" />
+    <Compile Include="Magnet.cs" />
     <Compile Include="MyGame.cs" />
     <Compile Include="GXPEngine\Core\Canvas.cs" />
     <Compile Include="GXPEngine\Game.cs" />
@@ -90,8 +93,11 @@
     <Compile Include="GXPEngine\FMOD\FMODSoundSystem.cs" />
     <Compile Include="GXPEngine\SoLoud\Soloud.cs" />
     <Compile Include="GXPEngine\SoLoud\SoloudSoundSystem.cs" />
+    <Compile Include="OilPool.cs" />
     <Compile Include="Player.cs" />
+    <Compile Include="PoliceCar.cs" />
     <Compile Include="RoadScroller.cs" />
+    <Compile Include="SpeedController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
